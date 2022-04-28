@@ -11,8 +11,6 @@
   <a href="https://chat.vuejs.org/"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg?sanitize=true" alt="Chat"></a>
 </p>
 
-## This repo is for Vue 2
-
-You are looking at the repository for Vue 2. The repo for Vue 3 is [vuejs/core](https://github.com/vuejs/core).
+## Vue
 
 
