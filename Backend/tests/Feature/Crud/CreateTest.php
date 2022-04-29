@@ -14,20 +14,17 @@ class CreateTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_user_can_create_new_product()
     {
-        $obj = new CrudProductsModel(['name_product' => 'Geladeira' , 'description' => 'Geladeira Nova', 'voltage' => '220V', 'brand' => 'EletroLux']);
+        $task = CrudProductsModel::factory()->create();
          
-        
-        $data = [
-            'name_product' => 'Geladeira',
-            'description' => 'Geladeira Nova',
-            'voltage' => '220V' ,
-            'brand' => 'EletroLux' ,
-        ];
+       
+        $this->post('/api/products',$task->toArray());
+        //It gets stored in the database
 
-        $response = $this->json('POST', '/api/products', $data);
-        $response->assertStatus(200);
+        $id = CrudProductsModel::select('id')->latest()->first();
+
+        $this->assertEquals(1,CrudProductsModel::find($id)->count());
      
     }
 }

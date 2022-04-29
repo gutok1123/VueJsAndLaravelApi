@@ -84,15 +84,39 @@ export default {
         voltage: this.product.voltage
       };
 
-      ProductDataService.create(data)
-        .then(response => {
-          this.product.id = response.data.id;
-          console.log(response.data);
-          this.submitted = true;
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      if (this.formValidation()) {
+            ProductDataService.create(data)
+              .then(response => {
+                this.product.id = response.data.id;
+                console.log(response.data);
+                this.submitted = true;
+              })
+              .catch(e => {
+                console.log(e);
+              });
+      }
+    }, formValidation() {
+      // first name
+      if (document.getElementsByName("name_product")[0].value === "") {
+        alert("Digite o nome do produto");
+        return false;
+      }
+      // last name
+      if (document.getElementsByName("description")[0].value === "") {
+        alert("Digite a desrição");
+        return false;
+      }
+      // email
+      if (document.getElementsByName("brand")[0].value === "") {
+        alert("Informe a marca");
+        return false;
+      }
+
+      if (document.getElementsByName("voltage")[0].value === "") {
+        alert("Informe a voltagem");
+        return false;
+      }
+      return true;
     },
     
     newProduct() {

@@ -2,6 +2,7 @@
   <div v-if="currentProduct" class="edit-form">
     <h4>Product</h4>
     <form>
+      
       <div class="form-group">
         <label for="title">Nome do produto</label>
         <input type="text" class="form-control" id="title"
