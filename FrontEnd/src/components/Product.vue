@@ -1,6 +1,6 @@
 <template>
   <div v-if="currentProduct" class="edit-form">
-    <h4>Product</h4>
+    <h4>Cadastro de produtos</h4>
     <form>
       
       <div class="form-group">

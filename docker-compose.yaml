@@ -8,19 +8,10 @@ services:
     ports: 
       - "8000:80"
     volumes: 
-      - ./Backend:/var/www/html
+      - ./backend:/var/www/html
     networks:
       - app  
 
-  frontend:
-    build: ./Fronted
-    container_name: vue
-    ports: 
-      - "8080:8080"
-    volumes: 
-      - ./Frontend:/app
-    networks:
-      - app  
 
   db:
     build: .docker/mysql
@@ -30,7 +21,7 @@ services:
       - "./.docker/dbdata:/var/lib/mysql"
     environment: 
       MYSQL_ROOT_PASSWORD: A_1234567
-      MYSQL_DATABASE: laravel_db01
+      MYSQL_DATABASE: db_project
     networks:
       - app
 
