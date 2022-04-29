@@ -31,3 +31,7 @@ Dentro da pasta frontend execute
  npm install
  npm run serve
 ```
+
+## Observação
+
+O arquivo .env está dentro da pasta do backend como .env.example, por favor renomeie ele para .env
