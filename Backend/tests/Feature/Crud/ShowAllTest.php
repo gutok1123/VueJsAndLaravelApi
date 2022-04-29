@@ -1,21 +1,21 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Crud;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class ShowAllTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Show All Test in Table At DataTable.
      *
      * @return void
      */
-    public function test_the_application_returns_a_successful_response()
+    public function test_example()
     {
         $response = $this->get('/api/products');
-
         $response->assertStatus(200);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Api\CrudProductsService;
 
+
 class CrudProductsController extends Controller
 {
     private $service;
@@ -15,36 +16,57 @@ class CrudProductsController extends Controller
         $this->service = $service;
     }
   
-    public function create(Request $request)
+    /**
+     * @param Request
+     * 
+     * @return void
+     */
+    public function create(Request $request) : void
    {
+     
      $data = json_decode($request->getContent(), true);
-
+  
      $this->service->create($data);
    }
 
-   public function showAll()
+   public function showAll() 
    {
      return json_encode($this->service->showAll());
    }
 
-   public function showDataSpecify(int $id)
+   public function showDataSpecify(int $id) 
    {
      return json_encode($this->service->find($id));
    }
 
-   public function updateDataSpecify(Request $request, int $id)
+    /**
+     * @param Request
+     * 
+     * @param int $id
+     * 
+     * @return void
+     */
+   public function updateDataSpecify(Request $request, int $id) : void
    {
     $data = json_decode($request->getContent(), true);
 
      $this->service->update($id, $data);
    }
 
-   public function deleteDataSpecify(int $id)
+    /**
+     * @param int $id
+     * 
+     * @return void
+     */
+   public function deleteDataSpecify(int $id) : void
    {
         $this->service->delete($id);
    }
 
-   public function deleteAll()
+    /**
+     * @return void
+     */
+   public function deleteAll() :void
    {
      $this->service->deleteAll();
    }
